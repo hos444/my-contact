@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
-//import 'package:url_launcher/url_launcher.dart';
+
+import 'start.dart';
 
 class SocialMediaIcon extends StatelessWidget {
   final String socialMedia;
   final String socialMediaLink;
-  const SocialMediaIcon({super.key,
-  required this.socialMedia,
-required this.socialMediaLink,
+  const SocialMediaIcon({
+    super.key,
+    required this.socialMedia,
+    required this.socialMediaLink,
   });
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,12 @@ required this.socialMediaLink,
           radius: 50,
         ),
         onTap: () {
-        launchUrl(Uri.parse(socialMediaLink),mode:LaunchMode.externalApplication );
+            Navigator.push(
+    context,
+    MaterialPageRoute<void>(
+      builder: (context) =>  StartCoialMedia(socialMediaLink: socialMediaLink,),
+    ),
+  );
         },
       ),
     );
