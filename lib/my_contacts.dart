@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_conact/social_media_icon.dart';
+import 'package:my_conact/Contacts_grid.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 // ignore: must_be_immutable
@@ -34,7 +34,7 @@ class Mycontacts extends StatelessWidget {
               radius: 130,
             ),
             Text(
-              'Call my',
+              'Call ',
               style: TextStyle(
                 color: Colors.blue,
                 fontSize: 30,
@@ -65,21 +65,7 @@ class Mycontacts extends StatelessWidget {
               ],
             ),
             SizedBox(height: 20),
-            GridView.builder(
-              itemCount: socialMedia.length,
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 3,
-              ),
-              itemBuilder: (context, index) {
-                return SocialMediaIcon(
-                  socialMedia: socialMedia.keys.toList()[index],
-                  socialMediaLink: socialMedia.values.toList()[index],
-                );
-              },
-              shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
-              padding: EdgeInsets.all(20),
-            ),
+            ContactsGrid(socialMedia: socialMedia),
           ],
         ),
       ),
